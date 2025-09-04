@@ -8,6 +8,7 @@ import com.quiz.model.UserRole;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
 import java.util.Set;
 
 @Service
@@ -48,6 +49,21 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long userId) {
         userRepository.deleteById(userId);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public Optional<User> findById(Long Id) {
+        return userRepository.findById(Id);
+    }
+
+    @Override
+    public void saveNewUser(User user) {
+         userRepository.save(user);
     }
 
 
