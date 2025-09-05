@@ -69,10 +69,8 @@ public class UserController {
         userInDb.setProfile(user.getProfile());
 
         userService.saveNewUser(userInDb);
-
         return ResponseEntity.ok("User updated successfully");
     }
-
 
     @ExceptionHandler(UserPrincipalNotFoundException.class)
     public ResponseEntity<?> exceptionHandler(UserPrincipalNotFoundException exception)
