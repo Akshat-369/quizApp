@@ -4,7 +4,7 @@
             <div class="col-md-6 offset-md-3">
                 <h1 class="text-center">Register here</h1>
 
-{{user | json}}
+<!--{{user | json}}-->
 
                 <form (ngSubmit)="formSubmit()">
 
@@ -17,10 +17,11 @@
                         name="username"
                         matInput placeholder="Enter here" 
                         />
+                        <mat-hint>username must be unique !!</mat-hint>
                     </mat-form-field>
 
-                                <!-- Password field -->
 
+                                <!-- Password field -->
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Password</mat-label>
                         <input 
@@ -35,7 +36,7 @@
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>First Name</mat-label>
                         <input 
-                        [(ngModel)]="user.firstName"
+                        [(ngModel)]="user.firstname"
                         name="firstName"
                         matInput placeholder="Enter here" 
                         />
@@ -46,7 +47,7 @@
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Last Name</mat-label>
                         <input 
-                        [(ngModel)]="user.lastName"
+                        [(ngModel)]="user.lastname"
                         name="lastName"
                         matInput placeholder="Enter here" 
                         />
