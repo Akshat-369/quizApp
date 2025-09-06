@@ -5,13 +5,15 @@
 
                 <mat-card>
                 <h1 class="text-center">Login here</h1>
-
-                <form action="">
+<!-- {{loginData | json}} -->
+                <form (ngSubmit)="formSubmit()">
                                 <!-- USername Field -->
 
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>Username</mat-label>
                         <input 
+                        [(ngModel)]="loginData.username"
+                        name="username"
                         required
                         matInput placeholder="Enter here" 
                         />
@@ -23,6 +25,8 @@
                     <mat-form-field class="full-width" appearance="fill">
                         <mat-label>User Password</mat-label>
                         <input type="password"
+                        [(ngModel)]="loginData.password"
+                        name="password"
                         required
                         matInput placeholder="Enter here" 
                         />
