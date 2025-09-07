@@ -27,7 +27,7 @@ public getCurrentUser()
   }
 
   //Login user: set token on local storagre
-  public loginUser(token: any)
+  public loginUser(token)
   {
     localStorage.setItem("token",token);
     return true;
@@ -60,7 +60,7 @@ public getCurrentUser()
   }
 
   //set user detail
-  public setUser(user: any)
+  public setUser(user)
   {
     localStorage.setItem('user', JSON.stringify(user));
   }
@@ -79,9 +79,11 @@ public getCurrentUser()
   }
 
   //get user role (admin or user)
+ //get user role (admin or user)
   public getUserRole()
   {
     let user=this.getUser();
     return user.authorities[0].authority;
   }
+
 }

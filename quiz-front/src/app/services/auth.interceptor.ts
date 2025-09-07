@@ -34,7 +34,7 @@ export const AuthInterceptorProviders=
 [
     {
         provide:HTTP_INTERCEPTORS,
-        useclass:AuthInterceptor,
+        useClass:AuthInterceptor,
         multi:true,
     },
 ];
