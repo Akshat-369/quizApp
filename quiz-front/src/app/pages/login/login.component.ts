@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { error } from 'console';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     password: ''
   };
 
-  constructor(private snack:MatSnackBar, private login:LoginService) {}
+  constructor(private snack:MatSnackBar, private login:LoginService, private router: Router) {}
 
   ngOnInit(): void {
   }
@@ -40,10 +40,44 @@ export class LoginComponent implements OnInit {
       (data:any)=>{
         console.log("Success");
         console.log(data);
+
+        //Login
+        this.login.loginUser(data.token);
+
+        this.login.getCurrentUser().subscribe
+        (
+          (user:any)=>
+          {
+            this.login.setUser(user);
+            console.log(user);
+
+            //redirect to either admin or normal user dashboard
+            if(this.login.getUserRole()=="ADMIN")
+            {
+              //redirect to admin dashboard
+              // window.location.href='/admin'
+              this.router.navigate(['admin'])
+              this.login.loginStaturSubject.next(true);
+            }
+            else if(this.login.getUserRole()=='NORMAL')
+            {
+              //redirect to normal dashboard
+              // window.location.href='/user-dashboard'
+              this.router.navigate(['user-dashboard'])
+              this.login.loginStaturSubject.next(true);
+            }
+            else
+            {
+              this.login.logout();
+            }
+          }
+        );
+
       },
       (error)=>{
         console.log('Error!');
         console.log(error);
+        this.snack.open("Invalid Details !! Try again",'',{duration:3000});
       }
     );
   }
