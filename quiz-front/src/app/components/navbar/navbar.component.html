@@ -8,7 +8,9 @@
   </a>
   <span>Quiz Game</span>
   <span class="example-spacer"></span>
-    <a [routerLink]="'/login'" 
+    <a
+     *ngIf="!isLoggedIn"
+    [routerLink]="'/login'" 
         matIconButton class="example-icon favorite-icon mr20 ml20" 
         aria-label="Example icon-button with heart icon">
         Login
