@@ -7,6 +7,11 @@ import { DashboardComponent } from './pages/admin/dashboard/dashboard.component'
 import { UserdashboardComponent } from './pages/user/userdashboard/userdashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 const routes: Routes = [
   {
@@ -25,8 +30,29 @@ const routes: Routes = [
   {
     path:'admin',
     component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate:[AdminGuard]
+    canActivate:[AdminGuard],
+    children:[
+      {
+        path  : '',
+        component: WelcomeComponent,
+      },
+      {
+        path  : 'profile',
+        component: ProfileComponent,
+      },
+      {
+        path  : 'categories',
+        component: ViewCategoriesComponent,
+      },
+      {
+        path  : 'add-category',
+        component: AddCategoryComponent,
+      },
+      {
+        path  : 'quizzes',
+        component: ViewQuizzesComponent,
+      }
+    ]
   },
   {
     path:'user-dashboard',

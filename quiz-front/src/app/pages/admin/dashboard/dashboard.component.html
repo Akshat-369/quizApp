@@ -1,1 +1,17 @@
-<H1>Welcome to ADMIN DASHBOARD</H1>
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar should usually take 3 columns -->
+      <div class="col-md-2.5">
+        <app-sidebar>
+
+        </app-sidebar>
+      </div>
+
+      <!-- Main content takes remaining 9 columns -->
+      <div class="col-md-10">
+       <router-outlet></router-outlet>
+      </div>
+    </div>
+  </div>
+</div>

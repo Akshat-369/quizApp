@@ -23,6 +23,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { AuthInterceptorProviders } from './services/auth.interceptor';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserdashboardComponent } from './pages/user/userdashboard/userdashboard.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import {MatListModule} from '@angular/material/list';
+import { SidebarComponent } from './pages/admin/sidebar/sidebar.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
+import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,14 @@ import { UserdashboardComponent } from './pages/user/userdashboard/userdashboard
     LoginComponent,
     HomeComponent,
     DashboardComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    ProfileComponent,
+    SidebarComponent,
+    SidebarComponent,
+    WelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoryComponent,
+    ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +61,8 @@ import { UserdashboardComponent } from './pages/user/userdashboard/userdashboard
     MatSnackBarModule,
     MatCardModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    MatListModule
   ],
   providers: [AuthInterceptorProviders],
   bootstrap: [AppComponent]
