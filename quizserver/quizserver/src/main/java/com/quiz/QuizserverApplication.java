@@ -1,6 +1,7 @@
 package com.quiz;
 
 import com.quiz.Service.UserService;
+import com.quiz.helper.UserFoundException;
 import com.quiz.model.Role;
 import com.quiz.model.User;
 import com.quiz.model.UserRole;
@@ -22,7 +23,8 @@ public class QuizserverApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception {
+	public void run(String... args) throws Exception ,UserFoundException {
+
 		System.out.println("starting code");
 
 //		User user = new User();

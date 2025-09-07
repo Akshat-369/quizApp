@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import java.security.Principal;
 
 @RestController("/user")
+@CrossOrigin("*")
 public class AuthenticateController {
 
     @Autowired

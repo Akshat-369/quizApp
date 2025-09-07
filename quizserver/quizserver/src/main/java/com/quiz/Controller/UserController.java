@@ -1,6 +1,7 @@
 package com.quiz.Controller;
 
 import com.quiz.Service.UserService;
+import com.quiz.helper.UserFoundException;
 import com.quiz.model.Role;
 import com.quiz.model.User;
 import com.quiz.model.UserRole;
@@ -27,7 +28,7 @@ public class UserController {
         user.setProfile("default.png");
         Role role = new Role();
         role.setRoleId(45L);
-        role.setRoleName("Normal");
+        role.setRoleName("NORMAL");
 
         UserRole userRole = new UserRole();
         userRole.setUser(user);
@@ -72,8 +73,8 @@ public class UserController {
         return ResponseEntity.ok("User updated successfully");
     }
 
-    @ExceptionHandler(UserPrincipalNotFoundException.class)
-    public ResponseEntity<?> exceptionHandler(UserPrincipalNotFoundException exception)
+    @ExceptionHandler(UserFoundException.class)
+    public ResponseEntity<?> exceptionHandler(UserFoundException exception)
     {
         return ResponseEntity.badRequest().build();
     }
