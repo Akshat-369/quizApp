@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
             {
               //redirect to normal dashboard
               // window.location.href='/user-dashboard'
-              this.router.navigate(['user-dashboard'])
+              this.router.navigate(['user-dashboard/0'])
               this.login.loginStaturSubject.next(true);
             }
             else
