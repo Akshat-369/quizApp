@@ -23,7 +23,7 @@ public class QuizserverApplication implements CommandLineRunner {
 	}
 
 	@Override
-	public void run(String... args) throws Exception ,UserFoundException {
+	public void run(String... args) throws  Exception ,UserFoundException {
 
 		System.out.println("starting code");
 

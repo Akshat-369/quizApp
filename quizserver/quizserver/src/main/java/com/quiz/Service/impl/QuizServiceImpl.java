@@ -2,11 +2,13 @@ package com.quiz.Service.impl;
 
 import com.quiz.Repository.QuizRepository;
 import com.quiz.Service.QuizService;
+import com.quiz.model.quiz.Category;
 import com.quiz.model.quiz.Quiz;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -37,8 +39,21 @@ public class QuizServiceImpl implements QuizService {
 
     @Override
     public void deleteQuiz(Long quizId) {
-        Quiz quiz = new Quiz();
-        quiz.setQid(quizId);
-        this.quizRepository.delete(quiz);
+        this.quizRepository.deleteById(quizId);
+    }
+
+    @Override
+    public List<Quiz> getQuizzesOfCategory(Category category) {
+        return this.quizRepository.findBycategory(category);
+    }
+
+    @Override
+    public List<Quiz> getActiveQuizzes() {
+        return this.quizRepository.findByActive(true);
+    }
+
+    @Override
+    public List<Quiz> getActiveQuizzesOfCategory(Category c) {
+        return this.quizRepository.findByCategoryAndActive(c,true);
     }
 }

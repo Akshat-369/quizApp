@@ -2,7 +2,9 @@ package com.quiz.Service;
 
 import com.quiz.model.quiz.Category;
 import com.quiz.model.quiz.Quiz;
+import org.springframework.http.ResponseEntity;
 
+import java.util.List;
 import java.util.Set;
 
 public interface QuizService {
@@ -17,5 +19,9 @@ public interface QuizService {
 
     public void deleteQuiz(Long quizId);
 
+    public List<Quiz> getQuizzesOfCategory(Category category);
 
+    public List<Quiz> getActiveQuizzes();
+
+    public List<Quiz> getActiveQuizzesOfCategory(Category c);
 }
